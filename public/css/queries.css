@@ -1,0 +1,74 @@
+/**************************/
+/* BELOW 1200px (Landscape Tablets) */
+/**************************/
+@media (max-width: 79em) {
+  html {
+    font-size: 56.25%;
+  }
+
+  /* .container {
+    max-width: 100rem;
+  } */
+}
+
+/**************************/
+/* BELOW 944px (Tablet Portrait) */
+/**************************/
+
+@media (max-width: 59em) {
+  html {
+    font-size: 42%;
+  }
+}
+
+/**************************/
+/* BELOW 690px (Smaller Tablet) */
+/**************************/
+@media (max-width: 43.125em) {
+  html {
+    font-size: 35%;
+  }
+
+  .footer-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 9.6rem;
+  }
+
+  .footer-links:link,
+  .footer-links:visited {
+    font-size: 3rem;
+    padding: 2.4rem;
+  }
+
+  .author {
+    font-size: 3rem;
+  }
+
+  .api-provider-text {
+    font-size: 3rem;
+  }
+}
+
+/**************************/
+/* BELOW 520px (Mobile) */
+/**************************/
+@media (max-width: 32.5em) {
+  html {
+    font-size: 30%;
+  }
+}
+
+/**************************/
+/* BELOW 420px (Mobile) */
+/**************************/
+@media (max-width: 26.25em) {
+  html {
+    font-size: 25%;
+  }
+
+  .header-description {
+    font-size: 3rem;
+    margin-bottom: 14.4rem;
+  }
+}

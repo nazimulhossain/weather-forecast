@@ -1,0 +1,36 @@
+extends base 
+
+mixin weatherExtra(quality)
+  p= `Air Quality: ${quality}`   
+  p= `UV Index: ${weather.current.uv}`
+  p= `Humidity: ${weather.current.humidity}%`
+  p= `Wind: ${weather.current.wind_dir} ${weather.current.wind_kph} km/h`
+  p= `Cloud: ${weather.current.cloud}%`
+  p= `Visibility: ${weather.current.vis_km} km/h`
+
+
+block content 
+  div
+  .container
+    .weather
+      h2.header-secondary= `${weather.location.name},${weather.location.region} as of ${weather.location.localtime}`
+      .current-weather
+        .weather-details
+          .temp-container
+            p.temp= Math.round(weather.current.temp_c)
+            - const icons= weather.current.condition.icon.split('/')
+            img.icon(src=`../img/weather/64x64/${icons[5]}/${icons[6]}`, alt=`weather icon ${weather.current.condition.text}`)
+          p.condition= weather.current.condition.text
+        .weather-extra
+          - const airQuality = weather.current.air_quality['us-epa-index']
+          - if(airQuality===1)
+            +weatherExtra('Good')
+          - if(airQuality===2)
+            +weatherExtra('Moderate')
+          - if(airQuality===3)
+            +weatherExtra('Unhealthy for sensitive group')
+          - if(airQuality===4)
+            +weatherExtra('Unhealthy')
+          - if(airQuality===5)
+            +weatherExtra('Very Unhealthy')
+

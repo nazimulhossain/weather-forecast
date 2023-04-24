@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  color: #212529;
+
+  background-image: url(../img/cloud.jpg);
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.main-header {
+  padding: 2.4rem 4.8rem;
+}
+
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.main-nav-links:link,
+.main-nav-links:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 3rem;
+  color: #222;
+  padding: 1.2rem 2.4rem;
+  font-weight: 600;
+  margin-bottom: 6.4rem;
+  transition: all 0.3s;
+}
+
+.main-nav-links:hover,
+.main-nav-links:active {
+  color: #333;
+  cursor: pointer;
+}
+
+.form {
+  padding: 4.8rem 0 9.6rem 0;
+  text-align: center;
+}
+
+.header-primary {
+  font-size: 8.6rem;
+  font-weight: 700;
+  line-height: 1.06;
+  color: #333;
+  letter-spacing: -0.5px;
+  margin-bottom: 4.8rem;
+  background-image: linear-gradient(to bottom, #0c0701, #1864ab);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.header-description {
+  font-size: 2.4rem;
+  line-height: 1.4;
+  margin-bottom: 12.8rem;
+}
+.search-input {
+  width: 100%;
+  border: none;
+  padding: 2.4rem 4.8rem;
+  font-size: 4.4rem;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.5);
+}
+
+.search-input::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+*:focus {
+  outline: none;
+}
+
+.show .results {
+  background-color: rgba(245, 243, 243, 0.5);
+  padding: 2.4rem 0;
+}
+.places {
+  width: 100%;
+  font-size: 4.4rem;
+  padding: 1.6rem 2.4rem;
+  text-align: left;
+  transition: all 0.3s;
+}
+
+.places:hover {
+  cursor: pointer;
+  background-color: #f8f9fa;
+  transform: translateY(5px);
+}
+
+.places:active {
+  transform: translate(0);
+}
+
+.footer-section {
+  padding: 9.6rem 4.8rem;
+  margin-top: 9.6rem;
+  display: flex;
+
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-nav ul {
+  list-style: none;
+}
+
+.footer-links:link,
+.footer-links:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #222;
+  padding: 1.6rem;
+  transition: all 0.5s;
+}
+
+.footer-links:hover,
+.footer-links:active {
+  color: #333;
+}
+
+.author {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.author-name:link,
+.author-name:visited {
+  text-decoration: none;
+  color: #222;
+}
+
+.api-provider-text {
+  font-size: 1.8rem;
+  /* font-weight: 600; */
+  text-align: center;
+  padding: 2.4rem 4.8rem;
+}
+
+.powered-by:link,
+.powered-by:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #222;
+  transition: all 0.5s;
+}
+
+.powered-by:hover,
+.powered-by:active {
+  color: #333;
+}
+
+/* ****************************** */
+/************ Weather Page *********/
+/* ****************************** */
+
+.weather {
+  background-image: linear-gradient(to bottom, #a5d8ffcb, #339bf075);
+  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.51);
+  border-radius: 11px;
+}
+
+.header-secondary {
+  padding: 2.4rem 4.8rem;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.06;
+  color: #333;
+  box-shadow: 0 1.2rem 2.4rem rgba(56, 189, 213, 0.725);
+  margin-bottom: 2.4rem;
+}
+.current-weather {
+  padding: 1.2rem 4.8rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr;
+  align-items: center;
+}
+
+.weather-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  font-size: 4.4rem;
+  font-weight: 600;
+  padding-bottom: 2.4rem;
+}
+
+.temp-container {
+  display: flex;
+  /* align-items: center; */
+  gap: 8rem;
+}
+
+.temp {
+  font-size: 13.4rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.temp::after {
+  content: 'c';
+  display: block;
+  transform: translate(100%, -113%);
+  font-size: 6.2rem;
+}
+
+.temp::before {
+  content: 'o';
+  display: block;
+  transform: translate(94%, 50%);
+  font-size: 6.2rem;
+}
+
+.icon {
+  width: 12.8rem;
+  height: 12.8rem;
+}
+
+.weather-extra {
+  font-size: 4.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  padding-bottom: 2.4rem;
+}
