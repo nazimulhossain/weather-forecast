@@ -4,6 +4,6 @@ Get real time weather forecast based on city name. User search for any city name
 
 # Technologies Used
 
-Node js, Pug template engine, Docker, CSS(responsive for all layout), AWS, MongoDB
+Node js, Pug template engine, CSS(responsive for all layout)
 
 API : Mapbox Geolocation , WeatherApi.com

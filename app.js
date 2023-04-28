@@ -6,7 +6,11 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const cors = require('cors');
 const { searchResult } = require('./controllers/searchResult');
-const { currentWeather, getWeather } = require('./controllers/weatherResult');
+const {
+  currentWeather,
+  getWeather,
+  getLatest,
+} = require('./controllers/weatherResult');
 const app = express();
 
 app.use(
@@ -32,6 +36,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // CORS
+
 app.use(
   cors({
     origin: 'http://ec2-16-16-92-226.eu-north-1.compute.amazonaws.com:8000/',
@@ -46,9 +51,10 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/weather', getLatest, getWeather);
+
 app.post('/search', searchResult);
 app.post('/weather', currentWeather);
-app.get('/weather', getWeather);
 
 // creating server
 

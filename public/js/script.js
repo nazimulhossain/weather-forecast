@@ -1,6 +1,7 @@
 const showPlace = document.querySelector('.results');
-const formEl = document.querySelector('.form');
-const searchType = document.getElementById('placefinder');
+const formSection = document.querySelector('.form');
+const searchInput = document.getElementById('searchbox');
+let fetchPlaces = '';
 
 const weatherApi = (feature, i) => {
   const placeName = document.querySelector(`.places--${i}`);
@@ -20,26 +21,26 @@ const weatherApi = (feature, i) => {
       },
       body: JSON.stringify(coordinates),
     });
-    // const data = await response.json();
+
     // redirect to weather endpoint
     window.setTimeout(() => {
       location.assign('/weather');
     }, 100);
   });
 };
-if (searchType) {
-  searchType.value = '';
-  searchType.dispatchEvent(new Event('input', { bubbles: true }));
-  searchType.addEventListener('input', async (e) => {
-    const placeEl = document.querySelectorAll('.places');
+if (searchInput) {
+  searchInput.value = '';
+
+  searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+  searchInput.addEventListener('input', async (e) => {
     const userInput = { input: e.target.value };
 
     // remove previous results from dom
-    if (placeEl) {
-      formEl.classList.remove('show');
-      placeEl.forEach((place) => {
+    if (fetchPlaces.length > 0) {
+      fetchPlaces.forEach((place) => {
         place.remove();
       });
+      formSection.classList.remove('show');
     }
 
     // send request to api to get latitude and longitude of place
@@ -63,7 +64,9 @@ if (searchType) {
         showPlace.insertAdjacentHTML('beforeend', newEl);
         weatherApi(feature, i);
       });
-      formEl.classList.add('show');
+      formSection.classList.add('show');
+
+      fetchPlaces = document.querySelectorAll('.places');
     }
   });
 }

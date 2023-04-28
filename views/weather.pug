@@ -6,7 +6,7 @@ mixin weatherExtra(quality)
   p= `Humidity: ${weather.current.humidity}%`
   p= `Wind: ${weather.current.wind_dir} ${weather.current.wind_kph} km/h`
   p= `Cloud: ${weather.current.cloud}%`
-  p= `Visibility: ${weather.current.vis_km} km/h`
+  p= `Visibility: ${weather.current.vis_km} km`
 
 
 block content 
@@ -33,4 +33,6 @@ block content
             +weatherExtra('Unhealthy')
           - if(airQuality===5)
             +weatherExtra('Very Unhealthy')
+          - if(airQuality===6)
+            +weatherExtra('Hazardous')  
 
